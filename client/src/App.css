@@ -1,0 +1,562 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+    --color-dark: #333;
+    --color-light: #fdfaf6;
+    --color-accent: #e0bdaa;
+    --color-text: #555;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-light);
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-dark);
+}
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: bold; }
+.nav-links a {
+    margin: 0 1rem;
+    font-size: 1rem;
+    position: relative; /* Needed for the underline effect */
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-dark);
+}
+
+/* Underline effect on hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-icons svg {
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add transition */
+}
+
+.nav-icons svg:hover {
+    transform: scale(1.2); /* Make icons slightly larger on hover */
+}
+
+/* --- Hero Section --- */
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+
+    /* --- New and Updated Rules --- */
+    width: 90%;            /* Makes it narrower than the full screen */
+    height: 85vh;           /* Makes it taller */
+    margin: 2rem auto;      /* Centers it and adds space above/below */
+    border-radius: 15px;    /* Rounds the corners */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1; /* Places the video in the background */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Dark semi-transparent overlay */
+    z-index: 2; /* Sits on top of the video */
+}
+
+.hero-content {
+    position: relative; /* Or position: absolute and centered */
+    z-index: 3; /* Sits on top of the overlay */
+    padding: 0 2rem;
+}
+
+.hero-content h1 { font-size: 4rem; color: #fff; margin-bottom: 1rem; }
+.hero-content p { font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; color: #f0f0f0; }
+
+.cta-button {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    /* Updated properties */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.cta-button:hover {
+    background-color: #d1a98c;
+    transform: translateY(-3px); /* Move button up slightly */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.cta-button:hover { background-color: #d1a98c; }
+/* --- Perfume Section --- */
+.perfume-section {
+    padding: 4rem 5%;
+    text-align: center;
+}
+.perfume-section h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.perfume-section .subtitle { margin-bottom: 3rem; font-size: 1.1rem; }
+.perfume-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+/* .perfume-card {
+    text-align: center;
+    background-color: #fff;
+    padding-bottom: 1.5rem;
+} */
+.perfume-card {
+    text-align: left;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px; /* Add a slight border-radius */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Add a subtle default shadow */
+    /* Updated properties */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.perfume-card:hover {
+    transform: translateY(-10px); /* Lifts the card up */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.card-image-container {
+    background-color: #f7f7f7; /* Light gray background for image */
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+.perfume-card img { width: 100%; height: 250px; object-fit: contain; }
+.perfume-card h3 { font-size: 1.4rem; margin: 0.5rem 0; }
+.perfume-card .perfume-notes { font-size: 0.9rem; color: #888; }
+/* --- Footer --- */
+/* --- Footer --- */
+.site-footer {
+    background-color: #3e3e3e;
+    color: #ccc;
+    padding: 4rem 5%;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.footer-column {
+    text-align: center; /* Center all text inside the column */
+}
+.footer-column h4 {
+    color: #fff;
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    position: relative;
+}
+/* Updated underline to be centered */
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    height: 2px;
+    width: 30px;
+    background-color: var(--color-accent);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.footer-column p, .footer-column a {
+    font-size: 0.9rem;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+.footer-column a:hover {
+    color: var(--color-accent);
+}
+
+/* Social Icons Styling and Effects */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center; /* Center the icons within their container */
+}
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #555;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+.social-links a:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-5px);
+    color: var(--color-dark);
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #555;
+    font-size: 0.8rem;
+}
+
+/* --- Responsive Adjustments --- */
+/* This rule now correctly stacks the centered columns */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2.5rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
+
+
+/* --- Admin Page Styles --- */
+
+.page-content {
+    min-height: 80vh; /* Ensures footer is pushed down */
+}
+
+.admin-page-wrapper {
+    padding: 4rem 5%;
+}
+
+.admin-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.admin-panel, .product-list {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.admin-panel h2, .product-list h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+/* Use the main call-to-action button style */
+.admin-panel button[type="submit"] {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-panel button[type="submit"]:hover {
+    background-color: #d1a98c;
+}
+
+.message {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    padding: 0.8rem;
+    border-radius: 5px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Product Management List Styles */
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-actions button {
+    width: auto;
+    padding: 0.4rem 0.8rem;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #5c6bc0; /* A nice indigo */
+}
+
+.delete-btn {
+    background-color: #e57373; /* A soft red */
+}
+
+.google-btn {
+    background-color: #4285F4 !important; /* Google's blue */
+    margin-bottom: 1rem;
+}
+
+.google-btn:hover {
+    background-color: #357ae8 !important;
+}
+
+.divider {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #ccc;
+}
+
+/* --- New Auth Page Styles (Login/Signup) --- */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    background-color: var(--color-light);
+}
+
+.auth-form-wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    text-align: center;
+    /* Animation */
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.auth-form-wrapper h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    border-color: #aaa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.social-btn svg {
+    font-size: 1.5rem;
+    margin-right: 0.75rem;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #ccc;
+    margin: 1.5rem 0;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.divider span {
+    padding: 0 1rem;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(224, 189, 170, 0.4);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--color-accent);
+    color: var(--color-dark);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #d1a98c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.auth-switch {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.auth-switch a {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    margin: 0 1rem;
+}
+.nav-button:hover {
+    color: var(--color-dark);
+}
