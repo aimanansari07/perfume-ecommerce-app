@@ -1,0 +1,9 @@
+# Dependencies
+/node_modules
+/client/node_modules
+
+# Environment Variables (Secrets)
+/server/.env
+
+# macOS folder attributes
+.DS_Store
